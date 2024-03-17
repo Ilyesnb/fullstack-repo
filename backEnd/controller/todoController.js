@@ -6,7 +6,7 @@ const getTodos = (req, res) => {
         res.json(result);
       })
       .catch((err) => {
-        console.log({ err: "can not get " });
+        console.log({ err: "can not get add from the database " });
       });
   }
   const  addTodo = (req,res)=>{

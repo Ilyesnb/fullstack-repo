@@ -1,4 +1,4 @@
-import TodoInput from "./Components/TodoInput"
+import TodoInput from "../../frontend/src/Components/TodoInput"
 import './App.css';
 
 function App() {
