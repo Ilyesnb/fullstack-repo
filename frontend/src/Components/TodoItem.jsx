@@ -35,7 +35,7 @@ const TodoItem = () => {
                             <p className='peading'>{item.title}</p>
                         </div>
                         <div>
-                            <button className='trashIcon' onClick={()=> handleDelete(item.id)} >
+                            <button className='trashIcon' onClick={()=> {handleDelete(item.id)}} >
                             <img src={trashIcon} alt="" />
                             </button>
                         </div>
