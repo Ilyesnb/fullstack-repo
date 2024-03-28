@@ -6,7 +6,7 @@ const getTodos = (req, res) => {
         res.json(result);
       })
       .catch((err) => {
-        console.log({ err: "can not get add from the database " });
+        console.log({ err: "can not get the database " });
       });
   }
   const  addTodo = (req,res)=>{
@@ -36,8 +36,8 @@ const deleteTodo =(req,res)=>{
   const id = req.params.id
   todo
   .findByIdAndDelete(id)
-  .then((result)=>{
-      res.json(result)
+  .then(()=>{
+      res.json({ message: 'Todo deleted successfully' });
   })
   .catch((err)=>{
       console.log({err:"can not delete the data"});

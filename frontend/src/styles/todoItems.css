@@ -5,6 +5,9 @@
     text-align: center;
 
 }
+.container:hover{
+    text-decoration: line-through;
+}
 .trashIcon{
     cursor: pointer;
     margin-right: 20px;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsContainer } from "../styles/todoInput.styled"
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
@@ -7,6 +7,13 @@ const App_BASE = "http://localhost:3004";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
+    useEffect(() => {
+        axios.get(App_BASE + "/todoList")
+            .then(todo => setInput(todo.data))
+            .catch((err) => {
+                console.log({ err: "can not add todos" })
+            })
+    }, [])
     const handleChanege = (e) => {
         setTodo(e.target.value)
     }
@@ -41,8 +48,7 @@ const TodoInput = () => {
                     {
                         input.map((item,index)=>(
                             <div key={index}>
-                                <TodoItem  item={item.title}/>
-
+                                <TodoItem titel={item.title}  />
                             </div>
 
                         ))
