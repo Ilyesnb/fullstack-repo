@@ -1,6 +1,6 @@
-const todo = require("../model/todoSchema")
+const Todo = require("../model/todoSchema")
 const getTodos = (req, res) => {
-    todo
+    Todo
       .find()
       .then((result) => {
         res.json(result);
@@ -10,7 +10,7 @@ const getTodos = (req, res) => {
       });
   }
   const  addTodo = (req,res)=>{
-    const todoPost = new todo(req.body)
+    const todoPost = new Todo(req.body)
     todoPost
     .save()
     .then((result)=>{
@@ -23,7 +23,7 @@ const getTodos = (req, res) => {
 const updateTodo = (req,res)=>{
   const id = req.params.id
   const updateTodo = req.body
-  todo
+  Todo
   .findByIdAndUpdate(id,updateTodo,{new:true})
   .then((result)=>{
       res.json(result)
@@ -34,9 +34,9 @@ const updateTodo = (req,res)=>{
 }
 const deleteTodo =(req,res)=>{
   const id = req.params.id
-  todo
+  Todo
   .findByIdAndDelete(id)
-  .then(()=>{
+  .then((result)=>{
       res.json({ message: 'Todo deleted successfully' });
   })
   .catch((err)=>{

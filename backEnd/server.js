@@ -1,18 +1,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
+const corsOptions = {
+  origin: "http://localhost:5000", // frontend URI (ReactJS)
+};
 app.use(bodyParser.json());
 const todosRoutes = require("./routes/todoRouter");
-app.use(cors());
-const uri =
-  "mongodb+srv://ilyesnabi9:Ilyesou2024@cluster0.nyufwoa.mongodb.net/code213?retryWrites=true&w=majority&appName=Cluster0";
+app.use(cors(corsOptions));
 mongoose
-  .connect(uri)
+  .connect(process.env.MONGODB_URI)
   .then(() => {
+    const PORT = process.env.PORT || 8000;
     console.log("mongodb connected");
-    app.listen(3004, () => {
+    app.listen(PORT, () => {
       console.log("server is running");
     });
   })

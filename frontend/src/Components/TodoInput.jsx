@@ -7,6 +7,7 @@ const App_BASE = "http://localhost:3004";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
+    // Submit the form data to the server using axios
     useEffect(() => {
         axios.get(App_BASE + "/todoList")
             .then(todo => setInput(todo.data))
@@ -17,6 +18,7 @@ const TodoInput = () => {
     const handleChanege = (e) => {
         setTodo(e.target.value)
     }
+
     const handleSubmit = (event) => {
         event.preventDefault()
         if (!todo.trim()) {
@@ -48,9 +50,8 @@ const TodoInput = () => {
                     {
                         input.map((item,index)=>(
                             <div key={index}>
-                                <TodoItem titel={item.title}  />
+                                <TodoItem id={item.id} title={item.title} />
                             </div>
-
                         ))
                     }
                 </ItemsContainer>
