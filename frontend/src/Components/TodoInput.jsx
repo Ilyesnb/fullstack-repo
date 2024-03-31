@@ -10,7 +10,10 @@ const TodoInput = () => {
     // Submit the form data to the server using axios
     useEffect(() => {
         axios.get(App_BASE + "/todoList")
-            .then(todo => setInput(todo.data))
+            .then((todo) =>{
+                setInput(todo.data)
+            })
+                
             .catch((err) => {
                 console.log({ err: "can not add todos" })
             })
@@ -36,6 +39,10 @@ const TodoInput = () => {
             console.error('Error adding todo:', error);
         });
     }
+    const handleDelete = id => {
+        // Filter out the deleted todo from the input state
+        setInput(input.filter(item => item._id !== id));
+    };
     return (
         <Containers>
             <InputContainer>
@@ -50,7 +57,7 @@ const TodoInput = () => {
                     {
                         input.map((item,index)=>(
                             <div key={index}>
-                                <TodoItem id={item.id} title={item.title} />
+                                <TodoItem id={item._id} title={item.title} onDelete={handleDelete}/>
                             </div>
                         ))
                     }

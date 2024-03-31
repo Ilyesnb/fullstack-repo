@@ -5,7 +5,7 @@ require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const corsOptions = {
-  origin: "http://localhost:5000", // frontend URI (ReactJS)
+  origin: "http://localhost:3000", // frontend URI (ReactJS)
 };
 app.use(bodyParser.json());
 const todosRoutes = require("./routes/todoRouter");
@@ -13,7 +13,7 @@ app.use(cors(corsOptions));
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    const PORT = process.env.PORT || 8000;
+    const PORT = process.env.PORT || 3000;
     console.log("mongodb connected");
     app.listen(PORT, () => {
       console.log("server is running");
