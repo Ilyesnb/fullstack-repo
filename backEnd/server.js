@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
+const todosRoutes = require("./routes/todoRouter");
 const bodyParser = require("body-parser");
 const corsOptions = {
   origin: "http://localhost:3000", // frontend URI (ReactJS)
 };
 app.use(bodyParser.json());
-const todosRoutes = require("./routes/todoRouter");
 app.use(cors(corsOptions));
 mongoose
   .connect(process.env.MONGODB_URI)
