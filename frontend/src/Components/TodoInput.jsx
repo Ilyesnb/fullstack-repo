@@ -2,14 +2,14 @@ import { useState,useEffect } from "react";
 import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsContainer } from "../styles/todoInput.styled"
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
-require('dotenv').config();
 import axios from "axios"
+ APP_URI = "https://fullstack-repo-1.onrender.com";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
     // Submit the form data to the server using axios
     useEffect(() => {
-        axios.get(process.env.APP_URI+"/todoList")
+        axios.get(process.env.APP_URI + "/todoList")
             .then((todo) =>{
                 setInput(todo.data)
             })
