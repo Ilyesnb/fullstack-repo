@@ -13,7 +13,7 @@ app.use(cors(corsOptions));
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    const PORT = process.env.APP_URI
+    const PORT = process.env.PORT || 3000;
     console.log("mongodb connected");
     app.listen(PORT, () => {
       console.log("server is running");
