@@ -3,13 +3,13 @@ import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsC
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
 import axios from "axios"
-const App_BASE = "https://fullstack-repo-1.onrender.com";
+
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
     // Submit the form data to the server using axios
     useEffect(() => {
-        axios.get(App_BASE + "/todoList")
+        axios.get(process.env.APP_URI + "/todoList")
             .then((todo) =>{
                 setInput(todo.data)
             })
