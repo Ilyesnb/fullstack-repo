@@ -6,7 +6,7 @@ const app = express();
 const todosRoutes = require("./routes/todoRouter");
 const bodyParser = require("body-parser");
 const corsOptions = {
-  origin: "http://localhost:3000", // frontend URI (ReactJS)
+  origin: "https://fullstack-repo.onrender.com/", // frontend URI (ReactJS)
 };
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
