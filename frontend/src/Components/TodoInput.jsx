@@ -3,13 +3,13 @@ import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsC
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
 import axios from "axios"
-
+const App_BASE = "https://fullstack-repo-1.onrender.com";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
     // Submit the form data to the server using axios
     useEffect(() => {
-        axios.get(process.env.APP_URI + "/todoList")
+        axios.get(App_BASE + "/todoList")
             .then((todo) =>{
                 setInput(todo.data)
             })
@@ -28,7 +28,7 @@ const TodoInput = () => {
             // If todo is empty or only whitespace, return early
             return;
           }
-        axios.post(process.env.APP_URI+"/todoList/create",{title:todo})
+        axios.post(App_BASE+"/todoList/create",{title:todo})
         .then(res => {
             // Add new todo to input state
             setInput([...input, res.data]);
