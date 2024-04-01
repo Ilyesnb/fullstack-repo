@@ -28,7 +28,7 @@ const TodoInput = () => {
             // If todo is empty or only whitespace, return early
             return;
           }
-        axios.post(App_BASE+"/todoList/create",{title:todo})
+        axios.post(process.env.APP_URI+"/todoList/create",{title:todo})
         .then(res => {
             // Add new todo to input state
             setInput([...input, res.data]);
