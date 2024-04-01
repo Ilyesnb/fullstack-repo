@@ -1,6 +1,5 @@
 import trashIcon from "../images/delete-bin-line.png"
 import axios from "axios"
-APP_URI = "https://fullstack-repo-1.onrender.com"
 const TodoItem = ({ title, id,onDelete }) => {
     const handleDelete = () => {
         console.log("Deleting todo with ID:", id)
