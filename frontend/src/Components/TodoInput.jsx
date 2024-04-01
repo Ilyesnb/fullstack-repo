@@ -3,7 +3,6 @@ import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsC
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
 import axios from "axios"
- APP_URI = "https://fullstack-repo-1.onrender.com";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
