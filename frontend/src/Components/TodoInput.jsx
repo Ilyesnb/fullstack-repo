@@ -9,7 +9,7 @@ const TodoInput = () => {
     const [input, setInput] = useState([])
     // Submit the form data to the server using axios
     useEffect(() => {
-        axios.get(process.env.APP_URI + "/todoList")
+        axios.get(APP_URI + "/todoList")
             .then((todo) =>{
                 setInput(todo.data)
             })
@@ -28,7 +28,7 @@ const TodoInput = () => {
             // If todo is empty or only whitespace, return early
             return;
           }
-        axios.post(process.env.APP_URI+"/todoList/create",{title:todo})
+        axios.post(APP_URI+"/todoList/create",{title:todo})
         .then(res => {
             // Add new todo to input state
             setInput([...input, res.data]);

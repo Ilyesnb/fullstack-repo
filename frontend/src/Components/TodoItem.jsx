@@ -4,7 +4,7 @@ APP_URI = "https://fullstack-repo-1.onrender.com"
 const TodoItem = ({ title, id,onDelete }) => {
     const handleDelete = () => {
         console.log("Deleting todo with ID:", id)
-        axios.delete(`${process.env.APP_URI}/todoList/${id}`)
+        axios.delete(`${APP_URI}/todoList/${id}`)
             .then((res) => {
                 onDelete(id);
                 console.log("Todo deleted successfully:'", res.data);
