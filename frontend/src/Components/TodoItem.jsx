@@ -1,5 +1,6 @@
 import trashIcon from "../images/delete-bin-line.png"
 import axios from "axios"
+require('dotenv').config();
 const TodoItem = ({ title, id,onDelete }) => {
     const handleDelete = () => {
         console.log("Deleting todo with ID:", id)

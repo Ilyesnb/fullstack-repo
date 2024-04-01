@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsContainer } from "../styles/todoInput.styled"
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
+require('dotenv').config();
 import axios from "axios"
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
