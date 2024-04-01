@@ -8,7 +8,7 @@ const TodoInput = () => {
     const [input, setInput] = useState([])
     // Submit the form data to the server using axios
     useEffect(() => {
-        axios.get(process.env.APP_URI + "/todoList")
+        axios.get(process.env.APP_URI+"/todoList")
             .then((todo) =>{
                 setInput(todo.data)
             })
