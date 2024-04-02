@@ -6,14 +6,14 @@ const app = express();
 const todosRoutes = require("./routes/todoRouter");
 const bodyParser = require("body-parser");
 const corsOptions = {
-  origin: "http://localhost:3000", // frontend URI (ReactJS)
+  origin: "https://fullstack-repo-1.onrender.com", // frontend URI (ReactJS)
 };
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT
     console.log("mongodb connected");
     app.listen(PORT, () => {
       console.log("server is running");
