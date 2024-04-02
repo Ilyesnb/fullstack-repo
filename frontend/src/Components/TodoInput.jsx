@@ -3,7 +3,7 @@ import { Containers, HContainer, Header, Form, Input, Bt, InputContainer, ItemsC
 import TodoItem from "./TodoItem";
 import "../styles/todoItems.css"
 import axios from "axios"
-const App_BASE = "https://fullstack-repo-1.onrender.com";
+const App_BASE = "https://fullstack-repo.onrender.com";
 const TodoInput = () => {
     const [todo, setTodo] = useState("")
     const [input, setInput] = useState([])
@@ -13,7 +13,6 @@ const TodoInput = () => {
             .then((todo) =>{
                 setInput(todo.data)
             })
-                
             .catch((err) => {
                 console.log({ err: "can not add todos" })
             })
