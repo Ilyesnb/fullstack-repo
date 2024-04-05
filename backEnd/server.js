@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 const corsOptions = {
   origin: "https://fullstack-repo-xp0z.onrender.com", // frontend URI (ReactJS)
 };
-app.use(bodyParser.json());
+app.use(bodyParser.json());   
 app.use(cors(corsOptions));
 mongoose
   .connect(process.env.MONGODB_URI)
