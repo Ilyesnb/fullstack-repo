@@ -5,5 +5,5 @@ const todoList = mongoose.Schema({
         required:true,
     },
 })
-const todo = mongoose.model("todo",todoList)
-module.exports= todo
+const Todo = mongoose.model("todo",todoList)
+module.exports= Todo
