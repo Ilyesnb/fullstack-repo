@@ -43,6 +43,11 @@ const TodoInput = () => {
         // Filter out the deleted todo from the input state
         setInput(input.filter(item => item._id !== id));
     };
+    const handelKeyPress = (e) =>{
+        if(e.key==="Enter"){
+            handleSubmit(e)
+        }
+    }
     return (
         <Containers>
             <InputContainer>
@@ -50,7 +55,7 @@ const TodoInput = () => {
                     <Header>Get things Done !</Header>
                 </HContainer>
                 <Form onSubmit={handleSubmit} >
-                    <Input onChange={handleChanege} type="text" placeholder="What needs to be done?" required value={todo} />
+                    <Input onChange={handleChanege} type="text" placeholder="What needs to be done?" required value={todo} onKeyDown={handelKeyPress} />
                     <Bt>Add task</Bt>
                 </Form>
                 <ItemsContainer>
