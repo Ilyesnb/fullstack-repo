@@ -1,4 +1,5 @@
 const Todo = require("../model/todoSchema")
+
 const getTodos = (req, res) => {
     Todo
       .find()
@@ -9,6 +10,7 @@ const getTodos = (req, res) => {
         console.log({ err: "can not get the database " });
       });
   }
+  //get a single todo by its
   const  addTodo = (req,res)=>{
     const todoPost = new Todo(req.body)
     todoPost
@@ -20,6 +22,7 @@ const getTodos = (req, res) => {
         console.log({err:"cannot add"})
     })
 }
+//update todos
 const updateTodo = (req,res)=>{
   const id = req.params.id
   const updateTodo = req.body
@@ -32,6 +35,7 @@ const updateTodo = (req,res)=>{
       console.log({err:"can not update the data"});
   })
 }
+//delete todos
 const deleteTodo =(req,res)=>{
   const id = req.params.id
   Todo
@@ -43,6 +47,7 @@ const deleteTodo =(req,res)=>{
       console.log({err:"can not delete the data"});
   })
 }
+
   module.exports = {
     getTodos,
     addTodo,

@@ -4,6 +4,7 @@ const App_BASE = "https://fullstack-repo-1-rr0b.onrender.com"
 const TodoItem = ({ title, id,onDelete }) => {
     const handleDelete = () => {
         console.log("Deleting todo with ID:", id)
+        // Make a DELETE request to the server using Axios and pass in the ID of the
         axios.delete(`${App_BASE}/todoList/${id}`)
             .then((res) => {
                 onDelete(id);
